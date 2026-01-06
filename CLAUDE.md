@@ -2,6 +2,20 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+- In all interactions and commit messages, be extremely concise and sacrifice grammar for the sake of concision.
+
+## Commands
+
+```bash
+npm install          # Install all workspace deps
+npm run dev          # Run all apps in dev mode (turbo)
+npm run build        # Build all apps (turbo)
+npm run lint         # Lint all apps (turbo)
+
+# Single app
+turbo dev --filter=@guardian-sre/dashboard
+```
+
 ## Project Overview
 
 Guardian SRE is an autonomous control plane for infrastructure monitoring and remediation. It uses agentic AI to connect observability signals to operational responses, with a core principle of **Deterministic Safety** - no automated action occurs without simulation, validation, and human approval.
@@ -14,9 +28,10 @@ Guardian SRE is an autonomous control plane for infrastructure monitoring and re
 - **Real-Time:** Fastify + Socket.io for Human-in-the-loop (HITL) handshake protocol
 - **Persistence:** PostgreSQL + pgvector for incident history and Runbook RAG
 - **Observability:** OpenTelemetry for tracing agent decision paths
+- **Dashboard:** React + TypeScript + TanStack (Query, Router, Table) for HITL operator UI
 
 **Key Patterns:**
-- Monorepo structure separating reasoning engine from execution layer
+- Turborepo monorepo: `apps/*` for deployables, `packages/*` for shared libs
 - Two-Phase Commit for remediation: Analyze/Simulate → Handshake → Execute (with human approval)
 - All remediation scripts must pass sandbox validation in transient Docker containers
 
@@ -49,3 +64,7 @@ Four layers of safety controls:
 - [Zod Schema Validation](https://zod.dev)
 - [pgvector](https://github.com/pgvector/pgvector)
 - [OpenTelemetry JS](https://opentelemetry.io/docs/languages/js/)
+- [TanStack Query](https://tanstack.com/query/latest)
+- [TanStack Router](https://tanstack.com/router/latest)
+- [TanStack Table](https://tanstack.com/table/latest)
+- [Turborepo](https://turbo.build/repo/docs)
