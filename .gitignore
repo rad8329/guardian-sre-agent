@@ -1,0 +1,50 @@
+# Dependency managers
+node_modules/
+.npm/
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+.turbo/
+build/
+out/
+.next/
+
+# Environment variables (CRITICAL: Never commit these)
+.env
+.env.local
+.env.*.local
+.env.production
+!.env.example
+
+# Debug and Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+npm-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+
+# Database & Local Infrastructure
+/docker/db_data/
+*.db
+*.sqlite
+
+# Temporary files
+.temp/
+.cache/
