@@ -1,0 +1,41 @@
+{
+  "name": "@guardian-sre/widget",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/guardian-widget.umd.cjs",
+  "module": "./dist/guardian-widget.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/guardian-widget.js",
+      "require": "./dist/guardian-widget.umd.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./web-component": {
+      "import": "./dist/web-component.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc -b && vite build"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.8.0"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "react-dom": { "optional": true }
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite-plugin-dts": "^4.3.0"
+  }
+}
