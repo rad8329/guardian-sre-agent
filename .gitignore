@@ -48,3 +48,6 @@ coverage/
 # Temporary files
 .temp/
 .cache/
+
+# Personal notes
+LEARNING.md

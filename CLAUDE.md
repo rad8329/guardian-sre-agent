@@ -10,10 +10,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 npm install          # Install all workspace deps
 npm run dev          # Run all apps in dev mode (turbo)
 npm run build        # Build all apps (turbo)
-npm run lint         # Lint all apps (turbo)
+npm run lint         # Lint all (global ESLint)
+npm run test         # Run all tests (Vitest)
+npm run test:watch   # Watch mode
 
 # Single app
-turbo dev --filter=@guardian-sre/dashboard
+turbo dev --filter=@guardian-sre/playground
+turbo build --filter=@guardian-sre/widget
 ```
 
 ## Project Overview
@@ -28,7 +31,8 @@ Guardian SRE is an autonomous control plane for infrastructure monitoring and re
 - **Real-Time:** Fastify + Socket.io for Human-in-the-loop (HITL) handshake protocol
 - **Persistence:** PostgreSQL + pgvector for incident history and Runbook RAG
 - **Observability:** OpenTelemetry for tracing agent decision paths
-- **Dashboard:** React + TypeScript + TanStack (Query, Router, Table) for HITL operator UI
+- **HITL Widget:** Embeddable React/Web Component for human-in-the-loop approvals (Grafana, Datadog, standalone)
+- **Playground:** React + TanStack for widget dev/testing
 
 **Key Patterns:**
 - Turborepo monorepo: `apps/*` for deployables, `packages/*` for shared libs
@@ -68,3 +72,6 @@ Four layers of safety controls:
 - [TanStack Router](https://tanstack.com/router/latest)
 - [TanStack Table](https://tanstack.com/table/latest)
 - [Turborepo](https://turbo.build/repo/docs)
+- [Docker](https://docs.docker.com)
+- [Helm](https://helm.sh/docs)
+- [Kubernetes](https://kubernetes.io/docs)
